@@ -8,7 +8,7 @@ class RegisterController extends Controller
 {
     //
     public function register(){
-        return view('admin.register.register');
+        return view('register.register');
     }
 
     public function registerPost(Request $request)

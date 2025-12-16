@@ -54,31 +54,56 @@
                                     <p class="mb-0">Enter your email and password to register</p>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('register') }}" method="POST"> @csrf
-                                        <div class="mb-3">
-                                            <input type="email" name="email" class="form-control form-control-lg"
-                                                placeholder="Email" aria-label="Email" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="password" name="password" class="form-control form-control-lg"
-                                                placeholder="Password" aria-label="Password" required>
-                                        </div>
+    <form action="{{ route('register.store') }}" method="POST">
+        @csrf
 
-                                        @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
+        {{-- NAME --}}
+        <div class="mb-3">
+            <input type="text" 
+                   name="name" 
+                   class="form-control form-control-lg"
+                   placeholder="Nama Lengkap"
+                   value="{{ old('name') }}"
+                   required>
+        </div>
 
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary w-100 mt-4 mb-0">Register</button>
-                                        </div>
-                                    </form>
-                                </div>
+        {{-- EMAIL --}}
+        <div class="mb-3">
+            <input type="email" 
+                   name="email" 
+                   class="form-control form-control-lg"
+                   placeholder="Email"
+                   value="{{ old('email') }}"
+                   required>
+        </div>
+
+        {{-- PASSWORD --}}
+        <div class="mb-3">
+            <input type="password" 
+                   name="password" 
+                   class="form-control form-control-lg"
+                   placeholder="Password"
+                   required>
+        </div>
+
+        {{-- ERROR MESSAGE --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-primary w-100 mt-4 mb-0">
+                Register
+            </button>
+        </div>
+    </form>
+</div>
                                 {{-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <a href="{{ route('Forgot') }}"
                                         class="text-primary text-gradient font-weight-bold">Forgot

@@ -40,6 +40,36 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        // 'password' => 'hashed',
     ];
+
+    /**
+     * ======================
+     * RELATIONS
+     * ======================
+     */
+
+    /**
+     * User memiliki banyak Post
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
+     * User memiliki banyak Like
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    /**
+     * User memiliki banyak Comment
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
