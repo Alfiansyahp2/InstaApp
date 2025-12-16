@@ -2,7 +2,7 @@
 
     <h4 class="mb-4 fw-bold">InstaApp</h4>
 
-    {{-- Menu atas --}}
+    {{-- Top Menu --}}
     <div class="nav flex-column gap-2">
         <a href="{{ route('posts.index') }}"
            class="nav-link {{ request()->routeIs('posts.*') ? 'active' : '' }}">
@@ -15,14 +15,15 @@
         </a>
     </div>
 
-    {{-- Logout --}}
-    <form action="{{ route('logout') }}" method="POST" class="mt-auto">
-    @csrf
-    <button type="submit" class="nav-link text-danger w-100 text-start">
+    {{-- Logout Button --}}
+    <button
+        class="nav-link text-danger w-100 text-start mt-auto"
+        data-bs-toggle="modal"
+        data-bs-target="#logoutModal">
         <i class="bi bi-box-arrow-right fs-5"></i> Logout
     </button>
-</form>
-
-
 
 </div>
+
+{{-- Include Logout Modal --}}
+@include('user.modal.modal-logout')

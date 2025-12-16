@@ -53,6 +53,32 @@ class AuthController extends Controller
     return redirect()->intended('/posts');
 }
 
+    public function update(Request $request)
+{
+    $user = Auth::user();
+
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'password' => 'nullable|min:6'
+    ]);
+
+    $data = [
+        'name'  => $request->name,
+        'email' => $request->email,
+    ];
+
+    // password OPTIONAL
+    if ($request->filled('password')) {
+        $data['password'] = bcrypt($request->password);
+    }
+
+    $user->update($data);
+
+    return redirect()->back()->with('success', 'Profile updated');
+}
+
+
 
     /**
      * Proses LOGOUT

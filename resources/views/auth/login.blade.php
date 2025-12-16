@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <a href="{{ route('register') }}"
-                                        class="text-primary text-gradient font-weight-bold">Register
+                                        class="text-primary text-gradient font-weight-bold">Sign Up
                                     </a>
                                 </div>
                             </div>
@@ -94,8 +94,8 @@
                                 <span class="mask bg-gradient-primary opacity-6"></span>
                                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Welcome To The
                                     InstaApp"</h4>
-                                <p class="text-white position-relative">InstaApp ialah sebuah aplikasi yang bertujuan
-                                    untuk memakmurkan pedangan keliling di sekitar batu</p>
+                                <p class="text-white position-relative">InstaApp About
+InstaApp adalah aplikasi web sederhana yang menyerupai Instagram. Aplikasi ini menyediakan fitur autentikasi pengguna, posting teks dan gambar, serta interaksi pengguna berupa like dan komentar.</p>
                             </div>
                         </div>
                     </div>

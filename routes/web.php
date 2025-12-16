@@ -21,7 +21,13 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', [LPController::class, 'lp'])->name('lp');
+// Route::get('/', [LPController::class, 'lp'])->name('lp');
+
+// Login
+// Root langsung redirect ke login
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 // Login
 Route::get('/login', function () {
@@ -42,13 +48,27 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+        ->name('posts.edit');
+
+    Route::put('/posts/{post}', [PostController::class, 'update'])
+        ->name('posts.update');
+
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])
+        ->name('posts.destroy');
 
     Route::post('/posts/{id}/like', [LikeController::class, 'store'])->name('posts.like');
     Route::post('/posts/{id}/comment', [CommentController::class, 'store'])->name('posts.comment');
 
     Route::get('/profile', [ProfileController::class, 'index'])
         ->name('profile.index');
+
+    Route::put('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+
 });

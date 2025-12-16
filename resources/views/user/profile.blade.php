@@ -24,7 +24,12 @@
                 <span><strong>0</strong> following</span>
             </div>
 
-            <button class="btn btn-secondary btn-sm">Edit profile</button>
+            <button class="btn btn-secondary btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#editProfileModal">
+    Edit profile
+</button>
+
         </div>
     </div>
 
@@ -33,8 +38,8 @@
     {{-- Tabs --}}
     <div class="d-flex justify-content-center gap-5 mb-3 text-uppercase small">
         <span class="fw-bold border-bottom pb-2">Posts</span>
-        <span class="text-muted">Saved</span>
-        <span class="text-muted">Tagged</span>
+        {{-- <span class="text-muted">Saved</span>
+        <span class="text-muted">Tagged</span> --}}
     </div>
 
     {{-- Post Grid --}}
@@ -54,5 +59,7 @@
     </div>
 
 </div>
+@include('user.modal.modal-edit-profil')
+
 
 @endsection
