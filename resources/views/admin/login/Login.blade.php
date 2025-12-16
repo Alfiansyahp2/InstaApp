@@ -75,14 +75,14 @@
                                         @endif
 
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary w-100 mt-4 mb-0">Sign
-                                                in</button>
+                                            <button type="submit" class="btn btn-lg btn-primary w-100 mt-4 mb-0">Sign in</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <a href="{{ route('register') }}"
-                                        class="text-primary text-gradient font-weight-bold">Register</a>
+                                        class="text-primary text-gradient font-weight-bold">Register
+                                    </a>
                                 </div>
                             </div>
                         </div>
